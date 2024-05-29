@@ -1,0 +1,39 @@
+:root {
+  --primary: blue;
+  --secondary: black;
+  --light: white;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  margin: 0;
+  height: 100dvh;
+  font-family: "Helvetica Neue", Helvetica, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+header {
+  padding: 1rem;
+  background: var(--primary);
+}
+
+main {
+  max-width: 1600px;
+  width: 100%;
+  justify-self: center;
+  padding: 1rem;
+}
+
+footer {
+  padding: 1rem;
+  background: var(--secondary);
+  color: var(--light);
+}
