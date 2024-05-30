@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "netlify-plugin-inline-functions-env": "^1.0.9",
     "stripe": "^15.8.0"
   }
 }
