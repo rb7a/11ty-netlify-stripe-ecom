@@ -1,5 +1,6 @@
 ---
-title: Ecom app
+title: 11ty Netlify Stripe Ecom App
+description: Super simple ecom app using 11ty static site generator, Netlify for hosting and Stripe for checkout and to maintain product data
 ---
 
 <!doctype html>
@@ -7,6 +8,8 @@ title: Ecom app
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="{{ eleventy.generator }}">
+    <meta name="description" content="{{ description }}">
     <title>{{ title }}</title>
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
