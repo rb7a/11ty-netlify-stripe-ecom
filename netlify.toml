@@ -13,4 +13,3 @@
   package = "netlify-plugin-inline-functions-env"
   [plugins.inputs]
     include = ["CONTEXT"]
-    
