@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "NODE_ENV=production npx eleventy",
+    "start": "netlify dev",
+    "dev": "NODE_ENV=development npx eleventy --serve",
+    "watch": "npx eleventy --watch",
+    "debug": "DEBUG=* npx eleventy"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +16,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "netlify-plugin-inline-functions-env": "^1.0.9",
+    "node-fetch": "^3.3.2",
     "stripe": "^15.8.0"
   }
 }
