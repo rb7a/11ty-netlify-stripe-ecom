@@ -13,14 +13,17 @@ description: Super simple ecom app using 11ty static site generator, Netlify for
     <title>{{ title }}</title>
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
-    <link rel="stylesheet" href="_includes/style.css">
+    <link rel="stylesheet" href="/_includes/style.css">
   </head>
   <body>
     <header>
       header content
     </header>
     <main>
+    {{ prices | log }}
       {{ content | safe }}
+
+      {% include "productlist.njk" %}
     </main>
     <footer>
       footer content

@@ -1,0 +1,22 @@
+{% if prices.length %}
+<section class="[ pad-top-700 gap-bottom-900 ]">
+  <div class="[ inner-wrapper ] [ sf-flow ]">
+    <h2 class="[ post-list__heading ] [ text-700 md:text-800 ]">Products</h2>
+    <ul class="product-grid">
+      {% for price in prices %}
+        {% if not price.product.metadata.variant %}
+        <li class="product-card sf-flow">
+          <a href="product/{{ price.product.name | slugify }}"><img src="{{ price.product.images }}"></a>
+          <a href="product/{{ price.product.name | slugify }}">
+            <h3 class="font-base leading-tight text-600 weight-mid">
+              {{ price.product.name }}
+            </h3>
+          </a>
+          <p>{{ price.unit_amount | convertCentsToDollars }}</p>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+{% endif %}
