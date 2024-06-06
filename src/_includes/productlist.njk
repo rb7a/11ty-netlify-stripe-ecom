@@ -5,7 +5,7 @@
     <ul class="product-grid">
       {% for price in prices %}
         {% if not price.product.metadata.variant %}
-        <li class="product-card sf-flow">
+        <li>
           <a href="product/{{ price.product.name | slugify }}"><img src="{{ price.product.images }}"></a>
           <a href="product/{{ price.product.name | slugify }}">
             <h3 class="font-base leading-tight text-600 weight-mid">
