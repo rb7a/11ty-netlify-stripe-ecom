@@ -129,3 +129,29 @@ ul {
     grid-column-end: 11;
   }
 }
+
+/* pdp */
+
+.product {
+  display: grid;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.product-image {
+  grid-row: 1 / 2;
+  place-self: start;
+}
+
+@media (min-width: 800px) {
+  .product {
+    grid-template-columns: clamp(350px, 40%, 500px) auto;
+    grid-template-rows: auto auto auto 1fr;
+  }
+  .product-name {
+    grid-column: 2 / 3;
+  }
+  .product-image {
+    grid-row: 1 / 5;
+  }
+}

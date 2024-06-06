@@ -1,0 +1,56 @@
+---
+layout: layout.njk
+pagination:
+  data: prices
+  size: 1
+permalink: "product/{{ pagination.items[0].product.name | slugify }}/index.html"
+---
+
+    
+{%- for item in pagination.items %}
+  <ul class="product">
+    <li class="product-name"><h1>{{ item.product.name }}</h1></li>
+    <li class="product-image"><img src="{{ item.product.images }}"></li>
+    <li class="product-price">{{ item.unit_amount | convertCentsToDollars }}</li>
+    <li class="product-buy">
+    {% if item.product.metadata.variants.length %}
+      <ul>
+      {% assign variants = item.product.metadata.variants | split: ", " %}
+      {%- for variant in variants %}
+        {% for price in prices %}
+          {% assign products = price.product.name | slugify %}
+           {%- if products == variant -%}
+            <li>Variants listing for this product: <i>{{ variant }}</i></li> 
+            <li>
+              <form action="/.netlify/functions/createCheckoutSession" method="POST">
+                <input
+                  type="hidden"
+                  value="{{ price.id }}"
+                  name="price_id"
+                  class="hidden"
+                />
+                <button id="addItemToBasketBtn" class="button" type="submit" data-title={{ price.product.name | url_encode }} data-price={{ price.unit_amount | convertCentsToDollars }}>Buy now {{ price.unit_amount | convertCentsToDollars }}</button>
+                <b>{{ price.product.name }}</b>
+              </form>
+            </li>
+          {%- endif %}
+        {% endfor -%}
+      {% endfor -%}
+    </ul>
+  </li>
+  {% else %}
+  <form action="/.netlify/functions/createCheckoutSession" method="POST">
+    <input
+      type="hidden"
+      value="{{ item.id }}"
+      name="price_id"
+      class="hidden"
+    />
+    <button class="button" type="submit">Buy now</button>
+  </form>
+  {% endif %}
+</li>
+  <li class="product-description">{{ item.product.description }}</li>
+  <ul>
+{% endfor -%}
+</ul>

@@ -1,0 +1,46 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Eleventy v2.0.1">
+    <meta name="description" content="Super simple ecom app using 11ty static site generator, Netlify for hosting and Stripe for checkout and to maintain product data">
+    <title>11ty Netlify Stripe Ecom App</title>
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" href="/_includes/style.css">
+  </head>
+  <body>
+    <header>
+      header content
+    </header>
+    <main>
+      
+  <ul class="product">
+    <li class="product-name"><h1>Kaiser Shirt Two - S</h1></li>
+    <li class="product-image"><img src=""></li>
+    <li class="product-price">£20.00</li>
+    <li class="product-buy">
+    
+  <form action="/.netlify/functions/createCheckoutSession" method="POST">
+    <input
+      type="hidden"
+      value="price_1OAZhZCNRzUpsdAf75k1e3kX"
+      name="price_id"
+      class="hidden"
+    />
+    <button class="button" type="submit">Buy now</button>
+  </form>
+  
+</li>
+  <li class="product-description">Small variant shirt</li>
+  <ul>
+</ul>
+
+    </main>
+    <footer>
+      footer content
+    </footer>
+  </body>
+</html>
