@@ -9,7 +9,16 @@ async function getPrices() {
   const response = await stripe.prices.list({
     expand: ["data.product"],
   })
-  return response.data.filter(price => price.active)
+  return {
+    raw: response.data.filter(price => price.active),
+    filtered: Array.from(
+      new Set(
+        response.data
+          .filter(price => price.active)
+          .flatMap(item => item.product.metadata.placement)
+      )
+    )
+  }
 }
 
 // TODO: catch errors

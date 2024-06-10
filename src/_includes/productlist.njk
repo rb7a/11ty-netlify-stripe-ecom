@@ -1,9 +1,9 @@
-{% if prices.length %}
+{% if prices.raw.length %}
 <section class="[ pad-top-700 gap-bottom-900 ]">
   <div class="[ inner-wrapper ] [ sf-flow ]">
     <h2 class="[ post-list__heading ] [ text-700 md:text-800 ]">Products</h2>
     <ul class="product-grid">
-      {% for price in prices %}
+      {% for price in prices.raw %}
         {% if not price.product.metadata.variant %}
         <li>
           <a href="product/{{ price.product.name | slugify }}"><img src="{{ price.product.images }}"></a>

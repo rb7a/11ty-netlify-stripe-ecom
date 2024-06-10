@@ -1,13 +1,15 @@
 ---
 layout: layout.njk
 pagination:
-  data: prices
+  data: prices.raw
   size: 1
 permalink: "product/{{ pagination.items[0].product.name | slugify }}/index.html"
 ---
 
     
 {%- for item in pagination.items %}
+
+  metadata: {{ item.product.metadata.placement }}
   <ul class="product">
     <li class="product-name"><h1>{{ item.product.name }}</h1></li>
     <li class="product-image"><img src="{{ item.product.images }}"></li>

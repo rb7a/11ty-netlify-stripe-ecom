@@ -1,0 +1,20 @@
+---
+layout: layout.njk
+pagination:
+  data: prices.filtered
+  size: 1
+permalink: "collection/{{ pagination.items[0] | slugify }}/index.html"
+---
+
+<h1>{{ pagination.items[0] }}</h1>
+
+<ul>
+{%- for item in prices.raw %}
+  {% if item.product.metadata.placement contains pagination.items[0]  %}
+  <li>{{ item.product.name }}</li>
+  {%- endif %}
+{% endfor -%}
+</ul>
+
+
+
