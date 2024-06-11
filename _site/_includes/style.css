@@ -38,6 +38,14 @@ footer {
   color: var(--light);
 }
 
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
 img {
   max-width: 100%;
   height: 100%;

@@ -17,7 +17,13 @@ description: Super simple ecom app using 11ty static site generator, Netlify for
   </head>
   <body>
     <header>
-      header content
+      <nav>
+        <ul>
+        {%- for item in prices.filtered %}
+          <li {% if item in page.url %} aria-current="page"{% endif %}><a href="{{ page.url }}">{{  item }}</a></li>
+        {%  endfor  %}
+        </ul>
+      </nav>
     </header>
     <main>
       {{ content | safe }}
