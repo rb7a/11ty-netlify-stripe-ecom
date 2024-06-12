@@ -20,7 +20,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-a {
+header a {
   color: var(--light);
 }
 
