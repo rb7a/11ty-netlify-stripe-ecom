@@ -21,7 +21,7 @@ exports.handler = async function (event, context) {
     ],
     mode: "payment",
     // TODO: customize thanks page with order details https://stripe.com/docs/payments/checkout/custom-success-page
-    success_url: "http://localhost:8888/thanks",
+    success_url: `${process.env.URL}/success`,
     // go back to page that they were on
     cancel_url: referer,
   });
